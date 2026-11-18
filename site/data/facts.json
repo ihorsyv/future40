@@ -6,5 +6,110 @@
     "source": {"label": "Human-readable source name", "url": "https://…"},
     "verifiedAt": "YYYY-MM-DD"
   },
-  "facts": {}
+  "facts": {
+    "2023|Flowie": [
+      {
+        "field": "status",
+        "value": "Acquired: by Sovos, folded into its agentic finance orchestration platform",
+        "source": {"label": "Sovos press release", "url": "https://sovos.com/press-releases/sovos-acquires-flowie-launching-the-industrys-first-agentic-compliant-finance-orchestration-platform/"},
+        "verifiedAt": "2026-11-18"
+      }
+    ],
+    "2024|Koyeb": [
+      {
+        "field": "status",
+        "value": "Acquired: joining Mistral AI to build AI infrastructure",
+        "source": {"label": "Koyeb official blog", "url": "https://www.koyeb.com/blog/koyeb-is-joining-mistral-ai-to-build-the-future-of-ai-infrastructure"},
+        "verifiedAt": "2026-11-18"
+      }
+    ],
+    "2024|Pollen Robotics": [
+      {
+        "field": "status",
+        "value": "Acquired: by Hugging Face, maker of the Reachy open-source robots",
+        "source": {"label": "Hugging Face official blog", "url": "https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition"},
+        "verifiedAt": "2026-11-18"
+      }
+    ],
+    "2021|Manadge": [
+      {
+        "field": "status",
+        "value": "Acquired: by Triton Digital, folded into its audio ad-tech business",
+        "source": {"label": "Triton Digital press release", "url": "https://tritondigital.com/press-releases/June-20-2023/triton-digital-announces-acquisition-of-manadge"},
+        "verifiedAt": "2026-11-18"
+      }
+    ],
+    "2021|Tandemz": [
+      {
+        "field": "status",
+        "value": "Acquired: by Bilendi & respondi, entry into the UX research market",
+        "source": {"label": "Bilendi regulated announcement (Euronext)", "url": "https://live.euronext.com/en/products/equities/company-news/2024-10-14-bilendi-bilendi-acquires-tandemz-specialist-recruitment"},
+        "verifiedAt": "2026-11-18"
+      }
+    ],
+    "2021|Pimster": [
+      {
+        "field": "status",
+        "value": "Acquired: by WOO (Olyn group), UGC shoppable-content technology integrated into WOO's offer",
+        "source": {"label": "WOO official blog", "url": "https://www.woo.paris/en/blog/woo-accelere-sur-le-social-commerce-avec-lintegration-de-pimster-la-technologie-ugc-shoppable"},
+        "verifiedAt": "2026-11-18"
+      }
+    ],
+    "2021|Traace": [
+      {
+        "field": "status",
+        "value": "Acquired: by Tennaxia, merged into its unified ESG/carbon-accounting offer",
+        "source": {"label": "Tennaxia official blog", "url": "https://www.tennaxia.com/en/blog/nouvelle-identite-et-offre-unifiee-tennaxia-franchit-un-nouveau-cap"},
+        "verifiedAt": "2026-11-18"
+      }
+    ],
+    "2022|Humanitics": [
+      {
+        "field": "status",
+        "value": "Acquired: by YOOBIC, folded into its Store Manager Copilot retail-AI product",
+        "source": {"label": "YOOBIC press release", "url": "https://yoobic.com/news-press/yoobic-expands-ai-leadership-in-retail-with-acquisition-of-humanitics-and-launch-of-store-manager-copilot/"},
+        "verifiedAt": "2026-11-18"
+      }
+    ],
+    "2022|m-work": [
+      {
+        "field": "status",
+        "value": "Acquired: by Asys, joining the French HR/workforce-planning software group",
+        "source": {"label": "Asys official blog", "url": "https://www.asys.fr/blog/m-work-rejoint-asys-groupe"},
+        "verifiedAt": "2026-11-18"
+      }
+    ],
+    "2019|Woorton": [
+      {
+        "field": "status",
+        "value": "Acquired: by B2C2, to gain a French AMF PSAN licence and EU presence",
+        "source": {"label": "B2C2 official announcement", "url": "https://www.b2c2.com/newspost/b2c2-boosts-european-presence-with-woorton-acquisition"},
+        "verifiedAt": "2026-11-18"
+      }
+    ],
+    "2020|Axel": [
+      {
+        "field": "status",
+        "value": "Acquired: by LumApps (as HeyAxel), to expand its Employee Experience Platform",
+        "source": {"label": "STATION F press release", "url": "https://stationf.co/news/lumapps-to-acquire-heyaxel-future-40-2020-to-expand-its-employee-experience-platform"},
+        "verifiedAt": "2026-11-18"
+      }
+    ],
+    "2020|Mailwarm": [
+      {
+        "field": "status",
+        "value": "Acquired: by mailX, an email-deliverability platform",
+        "source": {"label": "mailX press release (GlobeNewswire)", "url": "https://www.globenewswire.com/news-release/2025/06/09/3096160/0/en/DELIVERABILITY-EXPERTS-ACQUIRE-MAILWARM-TO-LAUNCH-MAILX.html"},
+        "verifiedAt": "2026-11-18"
+      }
+    ],
+    "2020|UNiFAi": [
+      {
+        "field": "status",
+        "value": "Acquired: by Akeneo, to integrate its Product Information Management technology",
+        "source": {"label": "STATION F press release", "url": "https://stationf.co/news/unifai-acquisition"},
+        "verifiedAt": "2026-11-18"
+      }
+    ]
+  }
 }
