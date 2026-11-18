@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="A source-led catalogue of STATION F Future 40 companies." />
+    <meta name="description" content="A source-led research catalogue of STATION F Future 40 companies, 2019-2026." />
     <title>Future 40 — STATION F cohorts</title>
     <link rel="stylesheet" href="assets/style.css" />
   </head>
@@ -11,25 +11,50 @@
     <header class="hero">
       <a class="eyebrow" href="#catalogue">Independent research catalogue</a>
       <h1>Future 40<br /><em>2019–2026</em></h1>
-      <p class="lede">A source-led record of the startups selected for STATION F’s Future 40. Every field is either linked to evidence or marked unverified.</p>
-      <div class="hero-meta"><span id="company-count">Loading companies…</span><span>•</span><span>8 cohorts</span><span>•</span><span>Research snapshot: 18 Nov 2026</span></div>
+      <p class="lede">A source-led record of the 320 startups selected for STATION F's Future 40, 2019 through 2026. Every description links back to the official cohort page it came from, and every additional fact carries its own source and verification date.</p>
+      <div class="hero-meta"><span id="company-count">Loading companies…</span><span>•</span><span>8 cohorts</span><span>•</span><span id="snapshot-date">Research snapshot pending…</span></div>
     </header>
 
     <main>
       <section class="method" aria-labelledby="method-title">
         <h2 id="method-title">How to read this catalogue</h2>
-        <p>Inclusion is based on annual cohort evidence. Company details are only displayed when supported by a linked source. “Unverified” means the detail has not yet been confirmed, not that it is false.</p>
+        <p>Every company's inclusion is tied to its named annual STATION F roster, linked on every card. The product description is STATION F's own text from the year of selection — it describes the company then, not necessarily now. Fields such as founders, funding, investors, geography or current status are shown only when a specific primary source confirms that exact field for that exact company; when no such source exists, the field is simply left off the card rather than shown as empty or "unverified". The sector label is this catalogue's own editorial grouping, not an official STATION F classification.</p>
+      </section>
+
+      <section class="analytics" aria-labelledby="analytics-title">
+        <h2 id="analytics-title">Catalogue coverage by cohort</h2>
+        <p class="analytics-note">This table describes how much of each official roster this catalogue has been able to source and verify — it is not a performance metric about the companies themselves, and nothing here is distributed from a cohort-level STATION F statistic down to individual companies.</p>
+        <div id="analytics-grid" class="analytics-grid"></div>
       </section>
 
       <section class="controls" id="catalogue" aria-label="Catalogue filters">
-        <label class="search"><span>Search</span><input id="search" type="search" placeholder="Company, product, founder…" autocomplete="off" /></label>
+        <label class="search"><span>Search</span><input id="search" type="search" placeholder="Company, product, sector, founder, investor…" autocomplete="off" /></label>
         <label><span>Year</span><select id="year"><option value="">All cohorts</option></select></label>
-        <label><span>Sector</span><select id="sector"><option value="">All sectors</option></select></label>
-        <label><span>Evidence</span><select id="status"><option value="">All evidence levels</option></select></label>
-        <label><span>Sort</span><select id="sort"><option value="year-desc">Newest cohort</option><option value="year-asc">Oldest cohort</option><option value="name">Name A–Z</option><option value="evidence">Most complete profiles</option></select></label>
+        <label><span>Editorial category</span><select id="category"><option value="">All categories</option></select></label>
+        <label><span>Source coverage</span>
+          <select id="coverage">
+            <option value="">Any coverage</option>
+            <option value="profile-website">Description + confirmed website</option>
+            <option value="profile-only">Description only</option>
+            <option value="roster-only">Roster listing only</option>
+          </select>
+        </label>
+        <label><span>Confirmed facts</span>
+          <select id="facts-filter">
+            <option value="">Any</option>
+            <option value="yes">Has sourced founders/funding/investors/geography/status</option>
+            <option value="no">Product profile only</option>
+          </select>
+        </label>
+        <label><span>Sort</span>
+          <select id="sort">
+            <option value="year-desc">Newest cohort</option>
+            <option value="year-asc">Oldest cohort</option>
+            <option value="name">Name A–Z</option>
+            <option value="completeness">Most complete profiles</option>
+          </select>
+        </label>
       </section>
-
-      <section class="summary" aria-label="Cohort summary"><div id="summary-grid"></div></section>
 
       <section class="results" aria-live="polite">
         <div class="results-heading"><h2>Companies</h2><p id="result-count"></p></div>
@@ -38,9 +63,18 @@
     </main>
 
     <footer>
-      <p>This is an independent research project. STATION F and Future 40 are referenced for identification only.</p>
-      <p><a href="data/companies.json">Download source data (JSON)</a> · <a href="data/README.md">Data and verification notes</a></p>
+      <p>This is an independent research project. STATION F and Future 40 are referenced for identification only and this catalogue is not affiliated with or endorsed by STATION F.</p>
+      <p><a href="data/companies.json">Roster data</a> · <a href="data/enrichment.json">Product-description data</a> · <a href="data/facts.json">Additional facts</a> · <a href="data/README.md">Verification rules</a></p>
     </footer>
+
+    <div id="profile-modal" class="modal" hidden>
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" type="button" data-close aria-label="Close profile">✕</button>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
     <script type="module" src="assets/app.js"></script>
   </body>
 </html>

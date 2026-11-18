@@ -1,0 +1,10 @@
+{
+  "schemaNote": "Each entry is keyed as \"<year>|<company name as in companies.json>\" and holds an array of individually-sourced facts. A fact is only added when a specific field (founders, funding, investors, geography, status) is confirmed by a named primary source: the company's own site or press release, an investor's press release, an official STATION F publication, or a relevant government registry. LinkedIn, Crunchbase, other aggregators, or inference are never used as the sole evidence for a fact.",
+  "factSchema": {
+    "field": "founders | funding | investors | geography | status",
+    "value": "Short, literally-supported statement",
+    "source": {"label": "Human-readable source name", "url": "https://…"},
+    "verifiedAt": "YYYY-MM-DD"
+  },
+  "facts": {}
+}
