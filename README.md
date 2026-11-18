@@ -22,16 +22,17 @@ The annual roster pages establish cohort membership and, for most companies, a p
 
 ## Update and deploy
 
+The Netlify project is linked to this repository's `main` branch with auto-publishing on, so a push is the deploy:
+
 ```bash
 # Re-pull descriptions/websites from the live STATION F pages (safe to re-run any time)
 node scripts/enrich-from-stationf.mjs
 
-# Commit and push
+# Commit and push — Netlify builds and publishes main automatically
 git add -A && git commit -m "…" && git push
-
-# Deploy the static site
-cd /Users/ihorsyvash/Developer/IXAK/future40 && netlify deploy --dir site --prod
 ```
+
+A manual deploy (`netlify deploy --dir site --prod`) still works if ever needed, but isn't the normal path anymore.
 
 ## What's next
 
