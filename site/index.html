@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A source-led catalogue of STATION F Future 40 companies." />
+    <title>Future 40 — STATION F cohorts</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <a class="eyebrow" href="#catalogue">Independent research catalogue</a>
+      <h1>Future 40<br /><em>2019–2026</em></h1>
+      <p class="lede">A source-led record of the startups selected for STATION F’s Future 40. Every field is either linked to evidence or marked unverified.</p>
+      <div class="hero-meta"><span id="company-count">Loading companies…</span><span>•</span><span>8 cohorts</span><span>•</span><span>Research snapshot: 18 Nov 2026</span></div>
+    </header>
+
+    <main>
+      <section class="method" aria-labelledby="method-title">
+        <h2 id="method-title">How to read this catalogue</h2>
+        <p>Inclusion is based on annual cohort evidence. Company details are only displayed when supported by a linked source. “Unverified” means the detail has not yet been confirmed, not that it is false.</p>
+      </section>
+
+      <section class="controls" id="catalogue" aria-label="Catalogue filters">
+        <label class="search"><span>Search</span><input id="search" type="search" placeholder="Company, product, founder…" autocomplete="off" /></label>
+        <label><span>Year</span><select id="year"><option value="">All cohorts</option></select></label>
+        <label><span>Sector</span><select id="sector"><option value="">All sectors</option></select></label>
+        <label><span>Evidence</span><select id="status"><option value="">All evidence levels</option></select></label>
+        <label><span>Sort</span><select id="sort"><option value="year-desc">Newest cohort</option><option value="year-asc">Oldest cohort</option><option value="name">Name A–Z</option><option value="evidence">Most complete profiles</option></select></label>
+      </section>
+
+      <section class="summary" aria-label="Cohort summary"><div id="summary-grid"></div></section>
+
+      <section class="results" aria-live="polite">
+        <div class="results-heading"><h2>Companies</h2><p id="result-count"></p></div>
+        <div id="cards" class="cards"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>This is an independent research project. STATION F and Future 40 are referenced for identification only.</p>
+      <p><a href="data/companies.json">Download source data (JSON)</a> · <a href="data/README.md">Data and verification notes</a></p>
+    </footer>
+    <script type="module" src="assets/app.js"></script>
+  </body>
+</html>
