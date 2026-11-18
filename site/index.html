@@ -9,6 +9,10 @@
     <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="icon" href="assets/favicon-48.png" sizes="48x48" type="image/png" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0c0a09" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;800;900&family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
@@ -22,7 +26,7 @@
     <main>
       <section class="method" aria-labelledby="method-title">
         <h2 id="method-title">How to read this catalogue</h2>
-        <p>Every company's inclusion is tied to its named annual STATION F roster, linked on every card. The product description is STATION F's own text from the year of selection — it describes the company then, not necessarily now. Fields such as founders, funding, investors, geography or current status are shown only when a specific primary source confirms that exact field for that exact company; when no such source exists, the field is simply left off the card rather than shown as empty or "unverified". The sector label is this catalogue's own editorial grouping, not an official STATION F classification.</p>
+        <p>Every company's inclusion is tied to its named annual STATION F roster, linked on every card. The product description is STATION F's own text from the year of selection — it describes the company then, not necessarily now. Fields such as founders, funding, investors or geography are shown only when a specific primary source confirms that exact field for that exact company; when no such source exists, the field is simply left off the card rather than shown as empty or "unverified". The status pill (Active / Acquired / Closed) is the one exception shown even when unconfirmed — it reads "Status not verified" rather than being omitted, so the absence of a claim is always visible. A confirmed status reflects the date it was checked, not a permanent fact — see each profile for its source and verification date. The sector label is this catalogue's own editorial grouping, not an official STATION F classification.</p>
       </section>
 
       <section class="analytics" aria-labelledby="analytics-title">
@@ -48,6 +52,15 @@
             <option value="">Any</option>
             <option value="yes">Has sourced founders/funding/investors/geography/status</option>
             <option value="no">Product profile only</option>
+          </select>
+        </label>
+        <label><span>Status</span>
+          <select id="status-filter">
+            <option value="">Any status</option>
+            <option value="Active">Active</option>
+            <option value="Acquired">Acquired</option>
+            <option value="Closed">Closed</option>
+            <option value="unverified">Status not verified</option>
           </select>
         </label>
         <label><span>Sort</span>

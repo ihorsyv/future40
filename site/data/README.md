@@ -32,12 +32,21 @@ Rules for adding a fact here:
 - LinkedIn, Crunchbase, other aggregators, news round-ups, or inference from unrelated facts are never acceptable as the sole evidence for a fact. If the only thing you can find is an aggregator listing, leave the field out.
 - `verifiedAt` is the date *you* checked the source, not the date the source itself was published.
 
-As of the last data refresh, `facts.json` is empty — no founder, funding, investor, geography or status claim has been added yet for any of the 320 companies. That is intentional: the catalogue would rather show nothing than something unverified.
+### The `status` field
+
+`status` follows the same rules as any other fact, with two differences:
+
+- It must never be guessed from a working website, an old STATION F mention, or the absence of news — only from one of the primary sources listed above explicitly confirming the company is active, was acquired, or has closed.
+- `value` must start with one of `Active`, `Acquired`, `Closed` (optionally followed by `: short detail`, e.g. `"Acquired: bought by Example Corp in 2026"`), so the site can render the matching status pill.
+
+A confirmed `status` reflects the date it was checked (`verifiedAt`), not a permanent fact — it can go stale and should be re-verified over time. When a company has no qualifying `status` fact in this file, the site shows a neutral "Status not verified" pill rather than guessing or leaving the field silently blank.
+
+`facts.json` is filled in gradually, one sourced claim at a time, starting with the most recent cohorts. Most of the 320 companies have no entry yet for most fields — that is intentional: the catalogue would rather show nothing than something unverified.
 
 ## Verification policy
 
 - Every roster entry has one official STATION F source establishing Future 40 cohort membership.
 - Product description and website are shown only when extracted from that same official source, with a link back to it and a verification date.
 - Founders, funding, investors, geography and current status are shown only when `facts.json` carries a specifically-sourced entry for that company and field.
-- Any field without a qualifying source is left off the page. The site never renders an "Unverified" placeholder for a missing field — absence of a field *is* the signal.
+- Any field without a qualifying source is left off the page. The site never renders an "Unverified" placeholder for a missing field — absence of a field *is* the signal. `status` is the one deliberate exception: every card shows a status pill, and it reads "Status not verified" rather than being omitted, so a missing status is always visible instead of silently absent.
 - The sector shown on each card is this catalogue's own editorial grouping, computed from the product description, and is explicitly labelled as not an official STATION F classification.

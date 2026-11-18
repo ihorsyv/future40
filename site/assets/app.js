@@ -4,6 +4,7 @@ const elements = {
   category: document.querySelector("#category"),
   coverage: document.querySelector("#coverage"),
   factsFilter: document.querySelector("#facts-filter"),
+  statusFilter: document.querySelector("#status-filter"),
   sort: document.querySelector("#sort"),
   cards: document.querySelector("#cards"),
   count: document.querySelector("#result-count"),
@@ -22,6 +23,13 @@ const formatDate = iso => {
 };
 
 const FACT_LABELS = { founders: "Founders", funding: "Funding", investors: "Investors", geography: "Geography", status: "Current status" };
+const STATUS_VALUES = ["Active", "Acquired", "Closed"];
+
+function statusCategory(statusFact) {
+  if (!statusFact) return null;
+  const head = String(statusFact.value).split(":")[0].trim();
+  return STATUS_VALUES.includes(head) ? head : null;
+}
 
 function classify(description) {
   if (!description) return null;
@@ -57,19 +65,25 @@ function buildCompanies(data, enrichment, factsData) {
     else if (description) coverage = "profile-only";
 
     const completeness = (description ? 1 : 0) + (website ? 1 : 0) + companyFacts.length;
+    const statusFact = companyFacts.find(fact => fact.field === "status") || null;
+    const status = statusCategory(statusFact);
 
     return {
       name, year: cohort.year, cohortPublishedAt: cohort.publishedAt, rosterSource,
       description, website, profileSource, coverage, category: classify(description),
       facts: companyFacts, completeness, hasFacts: companyFacts.length > 0,
+      statusFact, status,
     };
   }));
 }
 
 function cardTemplate(company) {
   const coverageLabel = { "profile-website": "Description + website", "profile-only": "Description only", "roster-only": "Roster listing only" }[company.coverage];
+  const statusLabel = company.status || "Status not verified";
+  const statusClass = company.status ? `status-${company.status.toLowerCase()}` : "status-unverified";
   return `<article class="card" data-name="${escape(company.name)}" data-year="${company.year}" tabindex="0" role="button" aria-haspopup="dialog">
     <div class="card-top"><span class="year">Future 40 · ${company.year}</span><span class="badge">${escape(coverageLabel)}</span></div>
+    <div class="status-pill ${statusClass}">${escape(statusLabel)}</div>
     <h3>${escape(company.name)}</h3>
     <p>${company.description ? escape(company.description) : "Membership in this cohort is confirmed by STATION F; no product description was extracted from the annual roster for this company."}</p>
     ${company.category ? `<div class="chip">${escape(company.category)} <small>· editorial, not official</small></div>` : ""}
@@ -79,11 +93,18 @@ function cardTemplate(company) {
 }
 
 function modalTemplate(company) {
+  const statusLabel = company.status || "Status not verified";
+  const statusClass = company.status ? `status-${company.status.toLowerCase()}` : "status-unverified";
+  const statusRow = company.statusFact
+    ? `<div class="modal-source-row"><b>Status source</b> ${sourceLink(company.statusFact.source, company.statusFact.source?.label)} <small>verified ${formatDate(company.statusFact.verifiedAt)}</small></div>`
+    : `<div class="modal-source-row"><b>Status source</b> <small>No primary source has confirmed a current status for this company yet.</small></div>`;
   return `
     <div class="modal-top"><span class="year">Future 40 · ${company.year}</span></div>
+    <div class="status-pill ${statusClass}">${escape(statusLabel)}</div>
     <h2 id="modal-title">${escape(company.name)}</h2>
     ${company.description ? `<p class="modal-desc">${escape(company.description)}<br /><small>Description as published at the time of selection (${escape(company.cohortPublishedAt)}).</small></p>` : `<p class="modal-desc"><small>No product description was extracted for this company; only roster membership is confirmed.</small></p>`}
     <div class="modal-sources">
+      ${statusRow}
       <div class="modal-source-row"><b>STATION F roster</b> ${sourceLink(company.rosterSource, `Future 40 ${company.year} announcement`)}</div>
       ${company.website ? `<div class="modal-source-row"><b>Company site (at selection)</b> <a href="${escape(company.website)}" target="_blank" rel="noreferrer">${escape(company.website)} ↗</a></div>` : ""}
       ${company.profileSource ? `<div class="modal-source-row"><b>Description verified</b> ${formatDate(company.profileSource.verifiedAt)}</div>` : ""}
@@ -114,8 +135,12 @@ function render(companies) {
     if (elements.coverage.value && company.coverage !== elements.coverage.value) return false;
     if (elements.factsFilter.value === "yes" && !company.hasFacts) return false;
     if (elements.factsFilter.value === "no" && company.hasFacts) return false;
+    if (elements.statusFilter.value === "unverified" && company.status) return false;
+    if (elements.statusFilter.value && elements.statusFilter.value !== "unverified" && company.status !== elements.statusFilter.value) return false;
     return true;
   }).sort((left, right) => {
+    const verifiedRank = (right.status ? 1 : 0) - (left.status ? 1 : 0);
+    if (verifiedRank !== 0) return verifiedRank;
     if (elements.sort.value === "name") return left.name.localeCompare(right.name);
     if (elements.sort.value === "completeness") return right.completeness - left.completeness || right.year - left.year;
     return elements.sort.value === "year-asc" ? left.year - right.year : right.year - left.year;
@@ -164,7 +189,7 @@ async function start() {
   elements.snapshot.textContent = `Research snapshot: ${formatDate(data.researchCutoff)}`;
   renderAnalytics(companies, data.cohorts);
 
-  [elements.search, elements.year, elements.category, elements.coverage, elements.factsFilter, elements.sort]
+  [elements.search, elements.year, elements.category, elements.coverage, elements.factsFilter, elements.statusFilter, elements.sort]
     .forEach(element => element.addEventListener("input", () => render(companies)));
 
   elements.modal.querySelectorAll("[data-close]").forEach(node => node.addEventListener("click", closeModal));
