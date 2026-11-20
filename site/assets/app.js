@@ -196,6 +196,18 @@ async function start() {
   document.addEventListener("keydown", event => { if (event.key === "Escape" && !elements.modal.hidden) closeModal(); });
 
   render(companies);
+
+  const params = new URLSearchParams(location.search);
+  const deepLinkName = params.get("company");
+  const deepLinkYear = params.get("year");
+  if (deepLinkName) {
+    const match = companies.find(company => company.name === deepLinkName && (!deepLinkYear || String(company.year) === deepLinkYear));
+    if (match) {
+      elements.search.value = match.name;
+      render(companies);
+      openModal(match);
+    }
+  }
 }
 
 start().catch(error => {

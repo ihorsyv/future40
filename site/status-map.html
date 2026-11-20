@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A status map of all 320 STATION F Future 40 companies, 2019-2026, grouped by cohort year and sourced status." />
+    <title>Future 40 — Status map</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="assets/favicon-48.png" sizes="48x48" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0c0a09" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;800;900&family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <a class="eyebrow" href="index.html">← Back to catalogue</a>
+      <h1>Status <span class="n40">map</span></h1>
+      <p class="lede">Every company in STATION F's Future 40, 2019 through 2026, grouped by cohort year and — where a primary source confirms it — by current status. Companies without a sourced status fold into a single "unverified" tile per year rather than being guessed at.</p>
+      <div class="hero-meta"><span id="company-count">Loading companies…</span><span>•</span><span id="snapshot-date">Research snapshot pending…</span></div>
+    </header>
+
+    <main>
+      <section class="map-legend" aria-label="Status legend">
+        <div class="map-legend-item"><span class="map-legend-dot status-active"></span>Active</div>
+        <div class="map-legend-item"><span class="map-legend-dot status-acquired"></span>Acquired</div>
+        <div class="map-legend-item"><span class="map-legend-dot status-closed"></span>Closed</div>
+        <div class="map-legend-item"><span class="map-legend-dot status-rebranded"></span>Rebranded</div>
+        <div class="map-legend-item"><span class="map-legend-dot status-dormant"></span>Dormant</div>
+        <div class="map-legend-item"><span class="map-legend-dot status-unverified"></span>Status not verified</div>
+      </section>
+
+      <section class="map-rows" id="map-rows" aria-label="Companies by cohort year and status">
+        <p class="empty">Loading…</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>This is an independent research project. STATION F and Future 40 are referenced for identification only and this catalogue is not affiliated with or endorsed by STATION F.</p>
+      <p><a href="index.html">Full catalogue</a> · <a href="data/companies.json">Roster data</a> · <a href="data/facts.json">Additional facts</a> · <a href="data/README.md">Verification rules</a></p>
+    </footer>
+
+    <script type="module" src="assets/status-map.js"></script>
+  </body>
+</html>
