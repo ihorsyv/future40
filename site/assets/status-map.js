@@ -21,14 +21,38 @@ function statusCategory(companyFacts) {
   return STATUS_VALUES.includes(head) ? head : null;
 }
 
-function cellTemplate(name, year, status) {
+function domainOf(url) {
+  if (!url) return null;
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch (error) {
+    return null;
+  }
+}
+
+function logoTemplate(name, domain) {
+  const initial = escape(name.replace(/^\W+/, "").charAt(0).toUpperCase() || "?");
+  if (!domain) {
+    return `<span class="map-cell-logo"><span class="map-cell-fallback" style="display:flex">${initial}</span></span>`;
+  }
+  return `<span class="map-cell-logo">
+      <img src="https://www.google.com/s2/favicons?sz=64&domain=${encodeURIComponent(domain)}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+      <span class="map-cell-fallback">${initial}</span>
+    </span>`;
+}
+
+function cellTemplate(name, year, status, index, domain) {
   return `<button type="button" class="map-cell status-${status.toLowerCase()}" data-name="${escape(name)}" data-year="${year}" title="${escape(name)} — ${status}">
-    <span>${escape(name)}</span>
+    <span class="map-cell-index">${String(index).padStart(2, "0")}</span>
+    ${logoTemplate(name, domain)}
+    <span class="map-cell-name">${escape(name)}</span>
   </button>`;
 }
 
-function rowTemplate(year, grouped, unverifiedCount) {
-  const cells = STATUS_ORDER.flatMap(status => grouped[status].map(name => cellTemplate(name, year, status))).join("");
+function rowTemplate(year, grouped, unverifiedCount, domains) {
+  const cells = STATUS_ORDER.flatMap(status =>
+    grouped[status].map(({ name, index }) => cellTemplate(name, year, status, index, domains[name]))
+  ).join("");
   const unverifiedTile = unverifiedCount > 0
     ? `<div class="map-cell map-unverified">+${unverifiedCount}<br />unverified</div>`
     : "";
@@ -39,11 +63,12 @@ function rowTemplate(year, grouped, unverifiedCount) {
 }
 
 async function start() {
-  const [companiesRes, factsRes] = await Promise.all([fetch("data/companies.json"), fetch("data/facts.json")]);
-  const [data, factsData] = await Promise.all([companiesRes.json(), factsRes.json()]);
+  const [companiesRes, factsRes, enrichmentRes] = await Promise.all([
+    fetch("data/companies.json"), fetch("data/facts.json"), fetch("data/enrichment.json"),
+  ]);
+  const [data, factsData, enrichment] = await Promise.all([companiesRes.json(), factsRes.json(), enrichmentRes.json()]);
   const facts = factsData.facts || {};
 
-  const years = data.cohorts.map(cohort => cohort.year).sort((a, b) => a - b);
   let totalCompanies = 0;
 
   elements.rows.innerHTML = data.cohorts
@@ -51,15 +76,18 @@ async function start() {
     .sort((a, b) => a.year - b.year)
     .map(cohort => {
       const grouped = { Acquired: [], Closed: [], Rebranded: [], Dormant: [], Active: [] };
+      const domains = {};
       let unverifiedCount = 0;
-      cohort.names.forEach(name => {
+      cohort.names.forEach((name, i) => {
         totalCompanies += 1;
         const companyFacts = facts[`${cohort.year}|${name}`] || [];
         const status = statusCategory(companyFacts);
-        if (status) grouped[status].push(name);
+        const website = enrichment.profiles?.[cohort.year]?.[name]?.websiteAtSelection;
+        domains[name] = domainOf(website);
+        if (status) grouped[status].push({ name, index: i + 1 });
         else unverifiedCount += 1;
       });
-      return rowTemplate(cohort.year, grouped, unverifiedCount);
+      return rowTemplate(cohort.year, grouped, unverifiedCount, domains);
     })
     .join("");
 
