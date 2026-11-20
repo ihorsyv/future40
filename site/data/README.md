@@ -36,8 +36,10 @@ Rules for adding a fact here:
 
 `status` follows the same rules as any other fact, with two differences:
 
-- It must never be guessed from a working website, an old STATION F mention, or the absence of news — only from one of the primary sources listed above explicitly confirming the company is active, was acquired, or has closed.
-- `value` must start with one of `Active`, `Acquired`, `Closed` (optionally followed by `: short detail`, e.g. `"Acquired: bought by Example Corp in 2026"`), so the site can render the matching status pill.
+- It must never be guessed from a working website, an old STATION F mention, or the absence of news — only from one of the primary sources listed above explicitly confirming the company is active, was acquired, has closed, or has rebranded.
+- `value` must start with one of `Active`, `Acquired`, `Closed`, `Rebranded`, `Dormant` (optionally followed by `: short detail`, e.g. `"Acquired: bought by Example Corp in 2026"`), so the site can render the matching status pill.
+- `Rebranded` is for a company that is still the same team/entity operating under a new name or domain (e.g. renamed on its own site or app-store listing) — not to be confused with `Acquired` (bought by someone else) or `Closed` (shut down). It still needs a named primary source stating the rename, same as any other status.
+- `Dormant` is the odd one out: it does not claim to know what happened to the company. It records that a *specific* check — a BODACC or Pappers company-registry search, or an archive.org capture-history lookup — came up empty after a given year: no registry record of liquidation, no news of acquisition or rebrand, nothing. The source must be that specific registry/archive query, not a general "no news found" web search (which doesn't qualify as a source at all, and should just leave the company with no status fact).
 
 A confirmed `status` reflects the date it was checked (`verifiedAt`), not a permanent fact — it can go stale and should be re-verified over time. When a company has no qualifying `status` fact in this file, the site shows a neutral "Status not verified" pill rather than guessing or leaving the field silently blank.
 

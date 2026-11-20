@@ -1,9 +1,12 @@
 {
-  "schemaNote": "Each entry is keyed as \"<year>|<company name as in companies.json>\" and holds an array of individually-sourced facts. A fact is only added when a specific field (founders, funding, investors, geography, status) is confirmed by a named primary source: the company's own site or press release, an investor's press release, an official STATION F publication, or a relevant government registry. LinkedIn, Crunchbase, other aggregators, or inference are never used as the sole evidence for a fact. For field \"status\", value must start with one of \"Active\", \"Acquired\", \"Closed\" (optionally followed by \": short detail\") so the site can render the correct status pill; verifiedAt records the date the status was checked, not a permanent fact — a status can go stale and should be re-verified periodically.",
+  "schemaNote": "Each entry is keyed as \"<year>|<company name as in companies.json>\" and holds an array of individually-sourced facts. A fact is only added when a specific field (founders, funding, investors, geography, status) is confirmed by a named primary source: the company's own site or press release, an investor's press release, an official STATION F publication, or a relevant government registry. LinkedIn, Crunchbase, other aggregators, or inference are never used as the sole evidence for a fact. For field \"status\", value must start with one of \"Active\", \"Acquired\", \"Closed\", \"Rebranded\", \"Dormant\" (optionally followed by \": short detail\") so the site can render the correct status pill; verifiedAt records the date the status was checked, not a permanent fact — a status can go stale and should be re-verified periodically. \"Rebranded\" is for a company still operating as the same team/entity under a new name/domain (confirmed by the company's own site, app-store listing, or press release saying so) — it is distinct from \"Acquired\" (bought by someone else) and \"Closed\" (shut down). \"Dormant\" is different from all four: it does NOT claim to know the company's fate. It means a specific check (company registry search, archive.org snapshot history) found no sign of activity after a given year and no record of acquisition, closure or rebrand either — an honest \"we looked and found nothing past this point\", not a guess that the company is closed. Its source must be the specific registry/archive query that came up empty (e.g. a BODACC or Pappers search, or a Wayback Machine capture history), not just \"no news found\" from a general web search.",
   "factSchema": {
     "field": "founders | funding | investors | geography | status",
     "value": "Short, literally-supported statement",
-    "source": {"label": "Human-readable source name", "url": "https://…"},
+    "source": {
+      "label": "Human-readable source name",
+      "url": "https://…"
+    },
     "verifiedAt": "YYYY-MM-DD"
   },
   "facts": {
@@ -11,7 +14,10 @@
       {
         "field": "status",
         "value": "Acquired: by Sovos, folded into its agentic finance orchestration platform",
-        "source": {"label": "Sovos press release", "url": "https://sovos.com/press-releases/sovos-acquires-flowie-launching-the-industrys-first-agentic-compliant-finance-orchestration-platform/"},
+        "source": {
+          "label": "Sovos press release",
+          "url": "https://sovos.com/press-releases/sovos-acquires-flowie-launching-the-industrys-first-agentic-compliant-finance-orchestration-platform/"
+        },
         "verifiedAt": "2026-11-18"
       }
     ],
@@ -19,7 +25,10 @@
       {
         "field": "status",
         "value": "Acquired: joining Mistral AI to build AI infrastructure",
-        "source": {"label": "Koyeb official blog", "url": "https://www.koyeb.com/blog/koyeb-is-joining-mistral-ai-to-build-the-future-of-ai-infrastructure"},
+        "source": {
+          "label": "Koyeb official blog",
+          "url": "https://www.koyeb.com/blog/koyeb-is-joining-mistral-ai-to-build-the-future-of-ai-infrastructure"
+        },
         "verifiedAt": "2026-11-18"
       }
     ],
@@ -27,7 +36,10 @@
       {
         "field": "status",
         "value": "Acquired: by Hugging Face, maker of the Reachy open-source robots",
-        "source": {"label": "Hugging Face official blog", "url": "https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition"},
+        "source": {
+          "label": "Hugging Face official blog",
+          "url": "https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition"
+        },
         "verifiedAt": "2026-11-18"
       }
     ],
@@ -35,7 +47,10 @@
       {
         "field": "status",
         "value": "Acquired: by Triton Digital, folded into its audio ad-tech business",
-        "source": {"label": "Triton Digital press release", "url": "https://tritondigital.com/press-releases/June-20-2023/triton-digital-announces-acquisition-of-manadge"},
+        "source": {
+          "label": "Triton Digital press release",
+          "url": "https://tritondigital.com/press-releases/June-20-2023/triton-digital-announces-acquisition-of-manadge"
+        },
         "verifiedAt": "2026-11-18"
       }
     ],
@@ -43,7 +58,10 @@
       {
         "field": "status",
         "value": "Acquired: by Bilendi & respondi, entry into the UX research market",
-        "source": {"label": "Bilendi regulated announcement (Euronext)", "url": "https://live.euronext.com/en/products/equities/company-news/2024-10-14-bilendi-bilendi-acquires-tandemz-specialist-recruitment"},
+        "source": {
+          "label": "Bilendi regulated announcement (Euronext)",
+          "url": "https://live.euronext.com/en/products/equities/company-news/2024-10-14-bilendi-bilendi-acquires-tandemz-specialist-recruitment"
+        },
         "verifiedAt": "2026-11-18"
       }
     ],
@@ -51,7 +69,10 @@
       {
         "field": "status",
         "value": "Acquired: by WOO (Olyn group), UGC shoppable-content technology integrated into WOO's offer",
-        "source": {"label": "WOO official blog", "url": "https://www.woo.paris/en/blog/woo-accelere-sur-le-social-commerce-avec-lintegration-de-pimster-la-technologie-ugc-shoppable"},
+        "source": {
+          "label": "WOO official blog",
+          "url": "https://www.woo.paris/en/blog/woo-accelere-sur-le-social-commerce-avec-lintegration-de-pimster-la-technologie-ugc-shoppable"
+        },
         "verifiedAt": "2026-11-18"
       }
     ],
@@ -59,7 +80,10 @@
       {
         "field": "status",
         "value": "Acquired: by Tennaxia, merged into its unified ESG/carbon-accounting offer",
-        "source": {"label": "Tennaxia official blog", "url": "https://www.tennaxia.com/en/blog/nouvelle-identite-et-offre-unifiee-tennaxia-franchit-un-nouveau-cap"},
+        "source": {
+          "label": "Tennaxia official blog",
+          "url": "https://www.tennaxia.com/en/blog/nouvelle-identite-et-offre-unifiee-tennaxia-franchit-un-nouveau-cap"
+        },
         "verifiedAt": "2026-11-18"
       }
     ],
@@ -67,7 +91,10 @@
       {
         "field": "status",
         "value": "Acquired: by YOOBIC, folded into its Store Manager Copilot retail-AI product",
-        "source": {"label": "YOOBIC press release", "url": "https://yoobic.com/news-press/yoobic-expands-ai-leadership-in-retail-with-acquisition-of-humanitics-and-launch-of-store-manager-copilot/"},
+        "source": {
+          "label": "YOOBIC press release",
+          "url": "https://yoobic.com/news-press/yoobic-expands-ai-leadership-in-retail-with-acquisition-of-humanitics-and-launch-of-store-manager-copilot/"
+        },
         "verifiedAt": "2026-11-18"
       }
     ],
@@ -75,7 +102,10 @@
       {
         "field": "status",
         "value": "Acquired: by Asys, joining the French HR/workforce-planning software group",
-        "source": {"label": "Asys official blog", "url": "https://www.asys.fr/blog/m-work-rejoint-asys-groupe"},
+        "source": {
+          "label": "Asys official blog",
+          "url": "https://www.asys.fr/blog/m-work-rejoint-asys-groupe"
+        },
         "verifiedAt": "2026-11-18"
       }
     ],
@@ -83,7 +113,10 @@
       {
         "field": "status",
         "value": "Acquired: by B2C2, to gain a French AMF PSAN licence and EU presence",
-        "source": {"label": "B2C2 official announcement", "url": "https://www.b2c2.com/newspost/b2c2-boosts-european-presence-with-woorton-acquisition"},
+        "source": {
+          "label": "B2C2 official announcement",
+          "url": "https://www.b2c2.com/newspost/b2c2-boosts-european-presence-with-woorton-acquisition"
+        },
         "verifiedAt": "2026-11-18"
       }
     ],
@@ -91,7 +124,10 @@
       {
         "field": "status",
         "value": "Acquired: by LumApps (as HeyAxel), to expand its Employee Experience Platform",
-        "source": {"label": "STATION F press release", "url": "https://stationf.co/news/lumapps-to-acquire-heyaxel-future-40-2020-to-expand-its-employee-experience-platform"},
+        "source": {
+          "label": "STATION F press release",
+          "url": "https://stationf.co/news/lumapps-to-acquire-heyaxel-future-40-2020-to-expand-its-employee-experience-platform"
+        },
         "verifiedAt": "2026-11-18"
       }
     ],
@@ -99,7 +135,10 @@
       {
         "field": "status",
         "value": "Acquired: by mailX, an email-deliverability platform",
-        "source": {"label": "mailX press release (GlobeNewswire)", "url": "https://www.globenewswire.com/news-release/2025/06/09/3096160/0/en/DELIVERABILITY-EXPERTS-ACQUIRE-MAILWARM-TO-LAUNCH-MAILX.html"},
+        "source": {
+          "label": "mailX press release (GlobeNewswire)",
+          "url": "https://www.globenewswire.com/news-release/2025/06/09/3096160/0/en/DELIVERABILITY-EXPERTS-ACQUIRE-MAILWARM-TO-LAUNCH-MAILX.html"
+        },
         "verifiedAt": "2026-11-18"
       }
     ],
@@ -107,8 +146,2764 @@
       {
         "field": "status",
         "value": "Acquired: by Akeneo, to integrate its Product Information Management technology",
-        "source": {"label": "STATION F press release", "url": "https://stationf.co/news/unifai-acquisition"},
+        "source": {
+          "label": "STATION F press release",
+          "url": "https://stationf.co/news/unifai-acquisition"
+        },
         "verifiedAt": "2026-11-18"
+      }
+    ],
+    "2019|Avostart": [
+      {
+        "field": "status",
+        "value": "Rebranded: same team, now operating as Ekie, a LegalCare service for companies",
+        "source": {
+          "label": "Le Monde du Droit",
+          "url": "https://www.lemondedudroit.fr/professions/337-legaltech/80460-avostart-devient-ekie-service-legalcare-destination-entreprises.html"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Internest": [
+      {
+        "field": "status",
+        "value": "Acquired: by Groupe EVA (via Skylink Industries GmbH)",
+        "source": {
+          "label": "Le Monde du Droit",
+          "url": "https://www.lemondedudroit.fr/deals/89460-cession-internest-groupe-eva.html"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Karamel": [
+      {
+        "field": "status",
+        "value": "Acquired: by Bsit Technologies (Brussels), folded into its Parentalist parenting-services platform",
+        "source": {
+          "label": "Tech.eu",
+          "url": "https://tech.eu/2020/08/04/bsit-acquires-karamel/"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Okarito": [
+      {
+        "field": "status",
+        "value": "Acquired: by Swile, renamed Swile Travel, valued at roughly €6.5M in the deal",
+        "source": {
+          "label": "CFNews",
+          "url": "https://www.cfnews.net/L-actualite/M-A-Corporate/Operations/100/Okarito-en-deplacement-chez-une-licorne-de-Montpellier-403684"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Navee": [
+      {
+        "field": "status",
+        "value": "Acquired: now part of Corsearch, a brand/content-protection company",
+        "source": {
+          "label": "France CLAT (industry association)",
+          "url": "https://ia.franceclat.fr/voir/350736-navee-now-part-of-corsearch"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|SalesTim": [
+      {
+        "field": "status",
+        "value": "Rebranded: same team, now operating as nBold",
+        "source": {
+          "label": "nBold official site",
+          "url": "https://nboldapp.com/"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Leeway": [
+      {
+        "field": "status",
+        "value": "Rebranded: same team, now operating as Tomorro, which went on to raise an €11M Series A under the new name",
+        "source": {
+          "label": "Law360 Pulse",
+          "url": "https://law360.com/pulse/articles/1774682"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Chaintrust": [
+      {
+        "field": "status",
+        "value": "Acquired: by Visma, team and brand retained within the Visma accounting-software group",
+        "source": {
+          "label": "Solutions Numériques",
+          "url": "https://www.solutions-numeriques.com/visma-renforce-son-ambition-de-construire-lecosysteme-comptable-le-plus-complet-en-france-en-acquerant-chaintrust"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Amalia": [
+      {
+        "field": "status",
+        "value": "Acquired: by Allshares (Helsinki-based ownership/equity-management platform), March 2026",
+        "source": {
+          "label": "BusinessWire",
+          "url": "https://www.businesswire.com/news/home/20260330401010/en/"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Fygr": [
+      {
+        "field": "status",
+        "value": "Rebranded: same team, now operating as Okimia",
+        "source": {
+          "label": "Okimia official site",
+          "url": "https://www.okimia.com/fr"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Crew3": [
+      {
+        "field": "status",
+        "value": "Rebranded: same team, now operating as Zealy (announced April 2023)",
+        "source": {
+          "label": "Zealy (company announcement, \"Crew3 is now Zealy\")",
+          "url": "https://zealy.notion.site/Crew3-is-now-Zealy-d1b2193e3a954b85a0845d4a41472b40"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Quack AI": [
+      {
+        "field": "status",
+        "value": "Closed: product sunsetted, founders moved on to build Rimward (unrelated security-monitoring product)",
+        "source": {
+          "label": "Quack AI official site",
+          "url": "https://quackai.com/"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Pimento": [
+      {
+        "field": "status",
+        "value": "Acquired: by Mistral AI, team joining to work on the Vibe (ex-Le Chat) product",
+        "source": {
+          "label": "TheNextWeb (reporting Mistral AI's confirmation to AFP)",
+          "url": "https://thenextweb.com/news/mistral-acquires-pimento-ai-advertising"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Kulipa": [
+      {
+        "field": "status",
+        "value": "Closed: stablecoin-card issuer shut down ~July 2026, four months after a $6.2M seed round; CEO disputed \"insolvency\" framing but not the shutdown itself",
+        "source": {
+          "label": "The Condia (reporting CEO Axel Cateland's statement)",
+          "url": "https://thecondia.com/kulipa-ceo-denies-insolvency-after-abruptly-shutting-down-services"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Backacia": [
+      {
+        "field": "status",
+        "value": "Acquired: original entity (SIREN 831478250) went into liquidation judiciaire in 2022; the business/brand continued via a court-ordered plan de cession (asset sale) to a new entity, Backacia France (SIREN 911118917), which still files accounts",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=831478250"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Fintecture": [
+      {
+        "field": "status",
+        "value": "Active: BODACC shows regular annual filings through fiscal year 2024 (deposited 2025-09-23), no insolvency or deregistration proceedings on file",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=834500548"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|CarbonCroc": [
+      {
+        "field": "status",
+        "value": "Dormant: no confirmed activity since 2025 — no BODACC registry record under this name, and the last live Wayback Machine capture of carboncroc.com is from 2025-08-28",
+        "source": {
+          "label": "Wayback Machine capture history",
+          "url": "https://web.archive.org/web/20250828000000/https://carboncroc.com"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Starton": [
+      {
+        "field": "status",
+        "value": "Active: BODACC shows annual accounts for fiscal years 2022-2024 all deposited together on 2026-03-06, no insolvency proceedings on file",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=882006133"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Elanos Insights": [
+      {
+        "field": "status",
+        "value": "Closed: cessation d'activité et dissolution effective 2023-12-31, official radiation (struck off the registry) published 2025-06-10",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=889762654"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Kompozite": [
+      {
+        "field": "status",
+        "value": "Dormant: no confirmed activity since 2025 — no BODACC registry record under this name, and the last live Wayback Machine capture of kompozite.io is from 2025-07-25",
+        "source": {
+          "label": "Wayback Machine capture history",
+          "url": "https://web.archive.org/web/20250725000000/https://kompozite.io"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Oxyde Technologies": [
+      {
+        "field": "status",
+        "value": "Closed: dissolution published 2022-09-06, official radiation (struck off the registry) published 2023-04-21",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=891700098"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Wildsense": [
+      {
+        "field": "status",
+        "value": "Dormant: no confirmed activity since 2022 — BODACC's last record is the FY2021 accounts filing (deposited 2022-10-25); no annual filing since, despite it being a legal requirement for an active SAS",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=891908576"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Ksaar": [
+      {
+        "field": "status",
+        "value": "Active: BODACC shows regular filings and administrative changes through August 2026 for its operating entities (Ksaar Solutions, Ksaar Invest)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=847801818"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Notice": [
+      {
+        "field": "status",
+        "value": "Dormant: no confirmed activity since 2025 — last live Wayback Machine capture of notice.studio is from 2025-09-25",
+        "source": {
+          "label": "Wayback Machine capture history",
+          "url": "https://web.archive.org/web/20250925154208/https://notice.studio"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Prepera": [
+      {
+        "field": "status",
+        "value": "Closed: liquidation judiciaire opened 2025-01-17, radiation d'office 2025-09-19, clôture pour insuffisance d'actif 2025-09-21",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=904076577"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|PALM": [
+      {
+        "field": "status",
+        "value": "Dormant: no confirmed activity since 2025 — last live Wayback Machine capture of palm-app.ai is from 2025-12-11",
+        "source": {
+          "label": "Wayback Machine capture history",
+          "url": "https://web.archive.org/web/20251211011629/https://www.palm-app.ai/"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Jamble": [
+      {
+        "field": "status",
+        "value": "Dormant: no confirmed activity since early 2026 — the last Wayback Machine capture of jambleapp.com (2026-02-09) is already a redirect, not a live page",
+        "source": {
+          "label": "Wayback Machine capture history",
+          "url": "https://web.archive.org/web/20260209212734/https://www.jambleapp.com/"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Sneakmart": [
+      {
+        "field": "status",
+        "value": "Active: BODACC shows a capital increase filed 2026-04-21",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=840757736"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Flippit": [
+      {
+        "field": "status",
+        "value": "Closed: dissolution/liquidation notice published 2026-09-20, liquidator appointed",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=948816947"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Dsflow": [
+      {
+        "field": "status",
+        "value": "Closed: cessation d'activité/dissolution effective 2024-01-29, official radiation published 2024-03-26",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=891967796"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Qeels": [
+      {
+        "field": "status",
+        "value": "Closed: liquidation judiciaire opened by court judgment on 2026-02-11",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=912943891"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Explorz": [
+      {
+        "field": "status",
+        "value": "Dormant: no confirmed activity since 2025 — no BODACC registry record under this name, and the last live Wayback Machine capture of explorz.app is from 2025-04-05",
+        "source": {
+          "label": "Wayback Machine capture history",
+          "url": "https://web.archive.org/web/20250405000000/https://explorz.app"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Beavr": [
+      {
+        "field": "status",
+        "value": "Active: BODACC shows a capital modification (2026-03-06) and annual accounts filed 2026-09-11, despite its website returning a 404",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=909074593"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Differs": [
+      {
+        "field": "status",
+        "value": "Closed: liquidation judiciaire judgment published 2026-11-10, matching its website going to a 404 in August 2026",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=921466066"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Kolverr": [
+      {
+        "field": "status",
+        "value": "Closed: liquidation judiciaire opened by court judgment on 2026-01-30",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=949689186"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Inclusive Brains": [
+      {
+        "field": "status",
+        "value": "Dormant: no confirmed activity since September 2024 — BODACC's last record is a management change on 2024-09-30; no liquidation on file, but no activity since either",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=910917376"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|WeatherMind": [
+      {
+        "field": "status",
+        "value": "Active: BODACC shows regular annual filings through 2025-09-24, despite its website blocking automated access with a 403",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=949418933"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Recupere Metals": [
+      {
+        "field": "funding",
+        "value": "Raised a €5M seed round to scale recycled-copper-wire production",
+        "source": {
+          "label": "Maddyness",
+          "url": "https://www.maddyness.com/2026/01/30/face-a-une-demande-de-cuivre-qui-explose-recupere-metals-leve-5-millions-deuros/"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Vema Hydrogen": [
+      {
+        "field": "funding",
+        "value": "Raised an oversubscribed $13M seed round led by Extantia Capital and Propeller Ventures",
+        "source": {
+          "label": "Sustainable Times",
+          "url": "https://www.sustainabletimes.co.uk/post/vema-hydrogen-secures-13m-to-transform-rocks-into-a-game-changing-low-carbon-hydrogen-source"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Sphinx": [
+      {
+        "field": "funding",
+        "value": "Raised $7.1M in seed funding led by Cherry Ventures",
+        "source": {
+          "label": "Fintech Global (reporting the company's funding announcement)",
+          "url": "https://fintech.global/2026/02/17/sphinx-secures-7-1m-to-expand-global-compliance-agents/"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Genesis": [
+      {
+        "field": "funding",
+        "value": "Emerged from stealth with $105M in funding, co-led by Eclipse and Khosla Ventures",
+        "source": {
+          "label": "The Robot Report",
+          "url": "https://www.therobotreport.com/genesis-ai-raises-105m-building-universal-robotics-foundation-model/"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Pronto": [
+      {
+        "field": "status",
+        "value": "Rebranded: same team/entity (Pronto SAS), now operating as Pipecorn after hitting $1M ARR in 2026",
+        "source": {
+          "label": "Pipecorn — About page",
+          "url": "https://pipecorn.com/about"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Airbuds": [
+      {
+        "field": "status",
+        "value": "Rebranded: same app/developer (Capp Inc), now listed on the App Store as Tunesimo",
+        "source": {
+          "label": "Apple App Store listing",
+          "url": "https://apps.apple.com/us/app/tunesimo/id1638906106"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Altrove": [
+      {
+        "field": "status",
+        "value": "Active: recent filings through 2026-03-02 (dépôt de comptes), plus linked entity Altrove Tech (SIREN 983830084) with capital modifications through 2025-10-05",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=951169713"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Biolevate": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2025-12-16 and modification published 2026-08-13",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=977728328"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|CarbonFarm": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-06-19, modification published 2026-06-12",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=912160389"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|CleanMob": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-06-21",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=891478380"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Corma": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-07-23, modification published 2026-02-19",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=953523271"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|.txt (dottxt)": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes (FY2025) filed 2026-06-26",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=983169509"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Entalpic": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-04-26, capital modification through 2025-02-19",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=928981596"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Formality": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2025-01-02, registered since 2023-10-08",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=952783009"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|ICONO": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-08-23, modification published 2026-05-21",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=951277383"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Leadbay": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-06-11, capital modification published 2026-08-19",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=977615459"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Leasi": [
+      {
+        "field": "status",
+        "value": "Active: regular dépôts de comptes across linked entities through 2026-08-06",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Leasi"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Neuralk-AI": [
+      {
+        "field": "status",
+        "value": "Active: dépôts de comptes filed 2026-01-06 and 2026-11-12",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=980187645"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Optimmo Energies": [
+      {
+        "field": "status",
+        "value": "Active: address modification published 2026-05-26, dépôt de comptes filed 2025-07-15",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=978389153"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Orus Energy": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes (FY closing 2024-12-31) published 2026-02-13",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=979179975"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Qevlar AI": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-09-08, capital modification published 2026-09-29",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=952849115"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Raidium": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-09-22",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=909501991"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Steerlab": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-09-30, capital modifications published 2026-09-30 and 2026-01-22",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=979285681"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Syntetica": [
+      {
+        "field": "status",
+        "value": "Active: capital modification published 2026-09-15, dépôt de comptes filed 2025-07-10",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=981347362"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Theremia": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-09-24",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=982570632"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Veeton": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-10-07",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=953479920"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Moneco": [
+      {
+        "field": "status",
+        "value": "Closed: jugement d'ouverture de liquidation judiciaire published 2026-01-25, état des créances filed 2026-11-13 (Tribunal des Activités Économiques de Nanterre)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=915343768"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Bluco": [
+      {
+        "field": "status",
+        "value": "Closed: dissolution sans liquidation published 2025-11-27, radiation (deregistration) published 2026-01-31 (Tribunal des Activités Économiques de Paris); no acquirer identified",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=929960862"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Drawbridge Labs": [
+      {
+        "field": "status",
+        "value": "Dormant: BODACC company-registry search came up empty — no matching entity found in BODACC under this name, and no news of acquisition, closure or rebrand found either",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Drawbridge+Labs"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Leanear": [
+      {
+        "field": "status",
+        "value": "Dormant: BODACC company-registry search came up empty — no matching entity found in BODACC under this name, and no news of acquisition, closure or rebrand found either",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Leanear"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2024|Vazy Data": [
+      {
+        "field": "status",
+        "value": "Dormant: BODACC company-registry search came up empty — no matching entity found in BODACC under this name, and no news of acquisition, closure or rebrand found either",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Vazy+Data"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Interstellar Lab": [
+      {
+        "field": "status",
+        "value": "Active: \"Modifications diverses\" filed 2026-11-13",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=881894950"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Bricks.AI": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-07-31",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=831740899"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|EyePick": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-04-24",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=852726587"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|My Digital Buildings": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes (FY2025) filed 2026-07-16",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=849917695"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Uptale": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes (FY2025) filed 2026-07-16",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=832172175"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|900.care": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2026-03-24 (legal name \"900\")",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=852949148"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Heraw": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes (FY2025) filed 2026-06-30 (legal name \"Herawi\")",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=847728110"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Chez Vos Producteurs": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes (FY2025) filed 2026-11-02",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=833320773"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Outmind": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2026-08-16",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=853306868"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Healthy Mind": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes (FY2025) filed 2026-06-17",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=833226608"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Kinetix": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2026-09-30",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=887848349"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Phacil": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes (FY2025) filed 2026-07-21 (legal name \"Phacil Delivery\")",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=840458566"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Allphins": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes (FY2025) filed 2026-07-24",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=840244826"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|DeltaBlock": [
+      {
+        "field": "status",
+        "value": "Active: address modification published 2025-07-09",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=848794178"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Mercateam": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes (FY2025) filed 2026-07-10",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=883002487"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Plantik Bioscience": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes (FY2025) filed 2026-10-22 (legal name \"Plantik Biosciences\")",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=853088441"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Switchy": [
+      {
+        "field": "status",
+        "value": "Closed: redressement judiciaire opened 2023-02-02, converted to liquidation judiciaire 2023-03-29, clôture pour insuffisance d'actif 2025-05-13, radiation 2025-05-16",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=853726305"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Fibrany": [
+      {
+        "field": "status",
+        "value": "Closed: redressement judiciaire opened 2025-10-01, converted to liquidation judiciaire 2025-11-26, clôture pour insuffisance d'actif 2026-05-13, radiation 2026-05-17",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=845020049"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Hello My Bot": [
+      {
+        "field": "status",
+        "value": "Closed: liquidation judiciaire opened 2025-02-12, état des créances deposited 2025-10-07 (legal name \"Hellomybot\")",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=829545896"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Tripartie": [
+      {
+        "field": "status",
+        "value": "Closed: liquidation judiciaire opened 2024-11-25",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=838459733"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|FACIL’iti": [
+      {
+        "field": "status",
+        "value": "Dormant: BODACC found the entity but last filing (modification) 2024-11-17, nothing since — no closure, acquisition or rebrand signal found either",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=834795023"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Nalia": [
+      {
+        "field": "status",
+        "value": "Dormant: BODACC found the entity but last filing (late-filed FY2020/FY2021 accounts) 2024-03-19, nothing since — no closure, acquisition or rebrand signal found either",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=878373430"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Orion Semantics": [
+      {
+        "field": "status",
+        "value": "Dormant: BODACC found the entity but exactly one filing ever, 2021-03-21, nothing before or since — no closure, acquisition or rebrand signal found either",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=838011054"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2020|Pronoo": [
+      {
+        "field": "status",
+        "value": "Dormant: BODACC found the entity but exactly one filing ever (création), 2020-03-10, nothing since — no closure, acquisition or rebrand signal found either",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=882017197"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Beamy": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2025-03-05, continuous filings since 2017",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=BEAMY"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|CryptoNext": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2025-07-29",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=CryptoNext"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Dropcontact": [
+      {
+        "field": "status",
+        "value": "Active: dépôts de comptes filed 2025-12-21 and 2026-02-13",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Dropcontact"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Fairbrics": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-07-17",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Fairbrics"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Harvestr": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-07-30",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Harvestr"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Immersiv": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2025-05-16, continuous filings since 2016",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Immersiv"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Omini": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2026-07-16, continuous same-SIREN filing history since creation 2019-02-06",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=847931318"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Pinpo": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-08-18",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=PINPO"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|QantEv": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2025-07-30",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=QantEv"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|SOWIT": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2026-10-30",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=SOWIT"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Stonly": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2025-09-07",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Stonly"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Tarmac Technologies": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-08-02",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Tarmac+Technologies"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|WhiteLab": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2026-10-20 and dépôt de comptes filed 2026-07-30 (legal name \"WhiteLab Genomics\")",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=WhiteLab+Genomics"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Yelda": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-02-22",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Yelda"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Favikon": [
+      {
+        "field": "status",
+        "value": "Active: still live and actively promoting a new product feature (\"Favy\" AI agent) as of 2026-11",
+        "source": {
+          "label": "company's own site (favikon.com)",
+          "url": "https://favikon.com"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Lemlist": [
+      {
+        "field": "status",
+        "value": "Active: acquired AI meeting-intelligence startup Claap, October 2025 — reported by Crowdfund Insider, DemandGen Report and bebeez.eu",
+        "source": {
+          "label": "press reports",
+          "url": "https://www.crowdfundinsider.com"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|MajaMaja": [
+      {
+        "field": "status",
+        "value": "Active: its Helsinki off-grid \"village\" opened spring 2023 and was named Small Project of the Year in the Dezeen Awards 2024",
+        "source": {
+          "label": "press reports",
+          "url": "https://www.dezeen.com/awards"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Bigblue": [
+      {
+        "field": "status",
+        "value": "Active: announced a $15M Series A (March 2022) and cited 10M orders/year scaling in a 2024 hiring post",
+        "source": {
+          "label": "company's own blog/careers page",
+          "url": "https://www.bigblue.co"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|CareGame": [
+      {
+        "field": "status",
+        "value": "Closed: liquidation judiciaire opened 2025-02-06 (cessation des paiements 2025-01-23)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=815085196"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|DigiTall Paris": [
+      {
+        "field": "status",
+        "value": "Closed: liquidation judiciaire opened 2024-09-27, closed for insufficient assets 2025-12-12, radiation filed 2025-12-16",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=839639960"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|ExtraLab": [
+      {
+        "field": "status",
+        "value": "Closed: liquidation judiciaire opened 2024-12-09 (cessation des paiements 2024-11-30)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=851306035"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Folhomee": [
+      {
+        "field": "status",
+        "value": "Closed: sauvegarde opened 2024-01-02, converted to redressement judiciaire 2024-06-25, converted to liquidation judiciaire 2024-10-15, closed for insufficient assets 2025-05-20",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=825211428"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|ImVitro": [
+      {
+        "field": "status",
+        "value": "Closed: liquidation judiciaire opened 2024-11-21 (cessation des paiements 2024-10-23), claims still being processed as of 2026-07-22",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=853259802"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|50inTech": [
+      {
+        "field": "status",
+        "value": "Closed: redressement judiciaire opened 2024-11-12, plan de cession approved 2025-01-15 (same day converted to liquidation judiciaire), closed for insufficient assets 2026-10-13",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=843697137"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|MOOVE Technologies": [
+      {
+        "field": "status",
+        "value": "Closed: original entity: liquidation judiciaire simplifiée opened 2021-11-02, closed for insufficient assets 2023-03-09; a same-named successor entity (SIREN 910786441) was created 2022-03-08 and remains on file (last filing 2024-09-30), but no dépôt de comptes was found for it, so its current activity is unconfirmed",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=832507354"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Blazar": [
+      {
+        "field": "status",
+        "value": "Dormant: only 4 filings total, last one 2021-03-12, nothing since; no working company domain found — no closure, acquisition or rebrand signal found either",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=848056651"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2019|Pressmium": [
+      {
+        "field": "status",
+        "value": "Dormant: zero BODACC hits under this name; pressmium.fr has no archive snapshot ever and pressmium.com's domain has been repurposed by an unrelated site, with no press coverage of the original company found after ~2020 — no closure, acquisition or rebrand signal found either",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Pressmium"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Ahrtemis": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-11-05",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=900150053"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Alpagga": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2026-07-10",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=912506888"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Alvie": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-01-02",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=919428367"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Amatera Biosciences": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-08-31",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=918491879"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Cobbaï": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2025-01-16",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=853380459"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Deep Talk": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-06-14",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=920440922"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Kumulus": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-01-30",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=917896409"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Omena": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-01-09 and modification published 2026-01-20 (legal name \"Omena Technologies\")",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=OMENA+TECHNOLOGIES"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Qivio": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2026-06-30, dépôt de comptes filed 2026-05-21",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=920265519"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Qweeko": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2025-11-05",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=893443218"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Tremau": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-06-04",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=903710176"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Trout Software": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-10-21",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=912301686"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Verdikt": [
+      {
+        "field": "status",
+        "value": "Active (moderate confidence): dépôt de comptes filed 2026-10-25, under legal entity \"CHHL\" (SIREN 889631123, NAF 62.01Z software dev) trading as \"Verdikt\" — the trade-name match is reasonably but not fully certain",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=889631123"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Payper": [
+      {
+        "field": "status",
+        "value": "Closed: liquidation judiciaire opened 2025-11-24, closed for insufficient assets 2026-06-19",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=917689549"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|The Serious Gut": [
+      {
+        "field": "status",
+        "value": "Closed: liquidation judiciaire opened 2024-05-06, closed for insufficient assets 2025-03-20",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=881834766"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Yumon": [
+      {
+        "field": "status",
+        "value": "Closed: deregistered from the RCS (radiation) on 2025-04-29 — a voluntary/administrative deregistration, not a documented bankruptcy",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=903095933"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Katalyz": [
+      {
+        "field": "status",
+        "value": "Closed (moderate confidence): modification naming new président \"RK PARTNERS\" published 2023-08-30, followed by radiation (deregistration) on 2023-09-21 — the entity's SIREN was created in 2016, earlier than the typical Future 40 cohort founding date, so the identity match carries some uncertainty",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=820807444"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Holis": [
+      {
+        "field": "status",
+        "value": "Dormant: only 2 BODACC filings total, last one (modification) on 2024-11-26, nothing since — no closure, acquisition or rebrand signal found either",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=911500858"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Finense": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-10-02",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Finense"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Spayr": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-09-03, modification published 2026-07-28",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Spayr"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Ever Dye": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2025-09-19, dépôt de comptes filed 2024-09-12",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Ever+Dye"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|GenoMines": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2025-11-23",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=GenoMines"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Phagos": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2025-01-30",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Phagos"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|ADYOUNEED": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-08-05",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=ADYOUNEED"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|DataVLab": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-08-02",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=847727872"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Dfns": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-01-13",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=888176575"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Sifflet": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-10-28, modification published 2026-07-09",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=901631416"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Vocads": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2024-08-04",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=890903552"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Whaly": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-03-10",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=891899718"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Campsider": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-06-18",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=890560238"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Deskare": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-07-31",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=900895228"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Goodvest": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2025-10-01",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=889263117"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|OneFlash": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-07-07",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=853831246"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Zephalto": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2026-10-04",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=824029516"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Rhisa": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2025-10-10, modification published 2026-02-27",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=893621524"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Viewst": [
+      {
+        "field": "status",
+        "value": "Active: company's own website (viewst.com, same domain as its 2021 STATION F profile) is live and currently marketing an AI ad-production product with active pricing tiers",
+        "source": {
+          "label": "Viewst's own website",
+          "url": "https://viewst.com"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Yneuro": [
+      {
+        "field": "status",
+        "value": "Active: reported signing its first contracts a year after winning Nexus, plus a CEATEC Global Award 2024 and Viva Tech Best Innovation Award 2024",
+        "source": {
+          "label": "Paperjam.lu / VivaTech news",
+          "url": "https://paperjam.lu"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Futurz": [
+      {
+        "field": "status",
+        "value": "Closed: liquidation judiciaire opened 2026-03-26 (cessation des paiements 2026-03-05)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=910918291"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Blockpulse": [
+      {
+        "field": "status",
+        "value": "Closed: redressement judiciaire opened 2024-12-16, converted to liquidation judiciaire 2025-02-12, état des créances filed 2026-03-20",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=838885820"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Rize": [
+      {
+        "field": "status",
+        "value": "Closed: liquidation judiciaire opened 2024-11-20 (legal name \"Rize ag\"), closed for insufficient assets 2026-07-21",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=889026365"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Qairn": [
+      {
+        "field": "status",
+        "value": "Acquired: absorbed by BMI System (SIREN 479660177) via fusion-absorption, merger project published 2023-11-14/15, original Qairn entity (SIREN 893692590) subsequently radiated 2024-01-26",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=893692590"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2021|Food7Go": [
+      {
+        "field": "status",
+        "value": "Dormant: only 2 BODACC filings total, both from the 2021 creation, nothing since — no closure, acquisition or rebrand signal found either",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=899998561"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Bitstack": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2025-04-08",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Bitstack"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Magma": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-03-15",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Magma"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Nopli": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2025-06-30, modification published 2025-05-30",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Nopli"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Scienta Lab": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2026-02-02",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Scienta+Lab"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Exwayz": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-08-11, modification published 2026-08-04",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=EXWAYZ"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Motion Society": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-02-15, modification published 2025-09-04",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Motion+Society"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Flagcat": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-09-08",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Flagcat"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|ColibriTD": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2026-09-18, dépôt de comptes filed 2025-07-31",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=ColibrITD"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Tracklab": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2025-12-17, modification published 2025-12-16",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=TRACKLAB"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Carbonx": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2025-07-08, modification published 2025-06-24",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Carbonx"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Mindflow": [
+      {
+        "field": "status",
+        "value": "Active: dépôts de comptes filed 2026-05-09 and 2026-03-10",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Mindflow"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Revyze": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2025-09-19",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=REVYZE"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Suzan AI": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-09-25",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=SUZAN+AI"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Nelson": [
+      {
+        "field": "status",
+        "value": "Active: legal entity \"Nelson Mobility\" (Stains), dépôt de comptes filed 2026-07-19",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Nelson+Mobility"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Yacon & co": [
+      {
+        "field": "status",
+        "value": "Active: legal entity \"RCT Food\" (SIREN 882554009, trading as Yacon & co), modification published 2026-06-26, dépôt de comptes filed 2025-10-07",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=882554009"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Sopht": [
+      {
+        "field": "status",
+        "value": "Active: legal entity \"GreenBuddy\" (SIREN 908543580, trading as Sopht), dépôt de comptes filed 2026-07-23, modification published 2026-08-05",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=908543580"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Kenko": [
+      {
+        "field": "status",
+        "value": "Active: SIREN 909627374 (Paris, created 2022-02-04), modifications published 2026-10-08",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=909627374"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Stabler": [
+      {
+        "field": "status",
+        "value": "Active: legal entity \"Stabler Technologies\" (Paris), dépôt de comptes filed 2024-08-28, modification published 2026-05-31",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Stabler+Technologies"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Chift": [
+      {
+        "field": "status",
+        "value": "Active: Belgian entity (not in the French registry, expected) — closed a €10.5M Series A led by BlackFin Capital Partners, announced on the company's own blog mid-September 2026, reported by tech.eu, fintech.global and Open Banking Expo",
+        "source": {
+          "label": "Chift's own blog",
+          "url": "https://chift.eu/blog/chift-announces-seed-funding-round"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Optimiz Construction": [
+      {
+        "field": "status",
+        "value": "Closed: liquidation judiciaire opened 2026-11-12 (cessation des paiements 2026-10-31), published 2026-11-20",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://www.bodacc.fr/pages/annonces-commerciales-detail/?q.id=id:A202602233950"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Spore.bio": [
+      {
+        "field": "status",
+        "value": "Dormant: BODACC company-registry search came up empty — zero BODACC hits under this name or close variants, despite the website being live and healthy — likely registered under a different legal name; no closure, acquisition or rebrand signal found either",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Spore.bio"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2023|Reetags": [
+      {
+        "field": "status",
+        "value": "Dormant: BODACC company-registry search came up empty — zero BODACC hits under this name or close variants, despite the website being live — likely registered under a different legal name; no closure, acquisition or rebrand signal found either",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Reetags"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|A51": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-07-30, created 2025-04-04, activity matches STATION F's RNA-programming description",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=942698358"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Aerleum": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2025-10-05",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=951995570"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Alpic": [
+      {
+        "field": "status",
+        "value": "Active: created 2025-08-06, no closure signal",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=989649736"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Billabex": [
+      {
+        "field": "status",
+        "value": "Active: created 2024-02-22, modification published 2026-08-28",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=984298505"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Blify": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-06-04",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=941613739"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Clarifeye": [
+      {
+        "field": "status",
+        "value": "Active: created 2025-02-14, no closure signal (young company, thin filing history as expected)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=940450554"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Ed.ai": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2026-08-05 (legal name \"Ed AI\")",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=932580087"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Ewake.ai": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2025-08-06, modification published 2026-01-09",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=929894376"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|HyReveal": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2026-06-09",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=984622316"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|InSpek": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2025-08-13, modification published 2026-06-04",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=902163963"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Marso Robotics": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2026-10-22",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=988990578"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|MGNM": [
+      {
+        "field": "status",
+        "value": "Active: created 2025-09-25, modification published 2026-02-20",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=991596081"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Moby Analytics": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2025-07-24, modification published 2026-04-21",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=912082500"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Nao Labs": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed 2026-10-06",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=938759735"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Pletor": [
+      {
+        "field": "status",
+        "value": "Active: dépôt de comptes filed through 2026-08-26 (legal name \"Pletory\")",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=919785626"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Sandra AI": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2026-11-08",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=935406330"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Shipfox": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2026-01-16",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=931399869"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Temelion": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2025-10-19, no closure signal (young company, thin filing history as expected)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=938359825"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Webyn": [
+      {
+        "field": "status",
+        "value": "Active: modification published 2026-11-20, dépôt de comptes filed 2026-06-30",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=949963136"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Freeda": [
+      {
+        "field": "status",
+        "value": "Active (moderate confidence): dépôt de comptes filed 2026-07-28, modification published 2026-07-03 — sector text (SaaS for design-professional collaboration) is design/architecture-adjacent rather than an exact match to STATION F's description, so this carries moderate confidence",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=932615883"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|HABS": [
+      {
+        "field": "status",
+        "value": "Active (moderate confidence): modification published 2026-10-21, dépôt de comptes filed 2026-09-27 — the creation filing's activity text wasn't retrievable, so the sector match (brainwave decoding) rests on location/timing/legal form rather than an explicit activity description, moderate confidence",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=953261583"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Opsima": [
+      {
+        "field": "status",
+        "value": "Active (moderate confidence): dépôt de comptes filed 2026-10-28 — activity text is generic SaaS wording consistent with but not explicit about FinOps, moderate confidence",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=933936288"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Pyto": [
+      {
+        "field": "status",
+        "value": "Active (moderate confidence): created 2024-06-05 — activity text is generic software/web development wording, not voice-AI-specific, moderate confidence",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=929160216"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Cede Hub": [
+      {
+        "field": "status",
+        "value": "Active: not a French legal entity (no BODACC match, as expected) — confirmed via Crypto.com's own blog post announcing a partnership and a joint trading competition with Casper Network (chainwire.org press release, 2026-06-25)",
+        "source": {
+          "label": "Crypto.com company blog",
+          "url": "https://crypto.com/company-news/cryptocom-exchange-cede-hub"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Lightpanda": [
+      {
+        "field": "status",
+        "value": "Active: no BODACC match found under this name, but the company's own blog post confirms a pre-seed round and ongoing operation (headless browser for AI agents, Paris-based)",
+        "source": {
+          "label": "Lightpanda's own blog",
+          "url": "https://lightpanda.io/blog/posts/lightpanda-raises-preseed"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Cobl": [
+      {
+        "field": "status",
+        "value": "Active: legal name \"Thinkeo\" (SIREN 883208142), modification published 2025-10-17",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=883208142"
+        },
+        "verifiedAt": "2026-11-20"
+      },
+      {
+        "field": "funding",
+        "value": "Raised €6M with Eurazeo and Station F as investors (April 2026); named clients include Orano, Free and Econocom",
+        "source": {
+          "label": "Maddyness",
+          "url": "https://www.maddyness.com"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Thunders": [
+      {
+        "field": "status",
+        "value": "Active: legal name \"Thunder Code\" (SIREN 938156361), dépôt de comptes filed 2026-05-28, modifications through 2026-10-08",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=938156361"
+        },
+        "verifiedAt": "2026-11-20"
+      },
+      {
+        "field": "funding",
+        "value": "Raised a $9M seed round (June 2025) from Silicon Badia, Jaango Capital and Titan Seed Fund, with angel investors Roxanne Varza and Karim Beguir",
+        "source": {
+          "label": "TechCrunch-adjacent coverage (Innovation Village / TechEconomy.ng)",
+          "url": "https://techeconomy.ng"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Tranched": [
+      {
+        "field": "status",
+        "value": "Active: London-based, not a French legal entity (no BODACC match, as expected) — confirmed via named fintech press",
+        "source": {
+          "label": "Finextra",
+          "url": "https://www.finextra.com"
+        },
+        "verifiedAt": "2026-11-20"
+      },
+      {
+        "field": "funding",
+        "value": "Raised a $3.4M pre-seed round (November 2024) led by Speedinvest, with Blockwall, Kima Ventures and OVNI Capital participating",
+        "source": {
+          "label": "Finextra / FFNews",
+          "url": "https://www.finextra.com"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Sillage": [
+      {
+        "field": "status",
+        "value": "Active: BODACC match inconclusive (name too generic), but confirmed via named press coverage naming specific investors and founders",
+        "source": {
+          "label": "Pulse2.com",
+          "url": "https://pulse2.com"
+        },
+        "verifiedAt": "2026-11-20"
+      },
+      {
+        "field": "funding",
+        "value": "Raised a €1.7M pre-seed round (April 2026) from Kima Ventures, Angel Invest and Drysdale Ventures; founders Arnaud Weiss and Arthur Coudouy",
+        "source": {
+          "label": "Pulse2.com / StartupRise.co.uk",
+          "url": "https://pulse2.com"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Voicing AI": [
+      {
+        "field": "status",
+        "value": "Active: no BODACC match found under this name, but the company's own press release (distributed via WBOC newswire, September 2026) announces a new \"Voice Diagnostics\" capability, quoting co-founder Abhi Kumar",
+        "source": {
+          "label": "Company press release via WBOC newswire",
+          "url": "https://www.wboc.com"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|AICE": [
+      {
+        "field": "status",
+        "value": "Active: legal name \"AICE Power\", filings 2025-11-14 and 2026-07-07",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=993293935"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Allude": [
+      {
+        "field": "status",
+        "value": "Active: filings 2026-06-16 and 2026-09-06",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=106208663"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Bending words": [
+      {
+        "field": "status",
+        "value": "Active: filings 2025-05-09 through 2026-09-06",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=943712406"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Bleu Robotics": [
+      {
+        "field": "status",
+        "value": "Active: filings 2025-12-31 to 2026-09-18",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=995292422"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Blynt AI": [
+      {
+        "field": "status",
+        "value": "Active: filings 2025-07-15 to 2026-06-26, plus a \"Roundtable - Blynt AI - Pre Seed\" financing-vehicle filing (SIREN 103475083) confirming an active pre-seed round",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=988491460"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Cleavr": [
+      {
+        "field": "status",
+        "value": "Active: filings through 2026-11-19, plus a \"Roundtable - Cleavr\" financing-vehicle filing",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=989360615"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Ethylowheel": [
+      {
+        "field": "status",
+        "value": "Active: filings from 2022 through 2026-11-05",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=911927846"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|ExtraJool": [
+      {
+        "field": "status",
+        "value": "Active: filings 2023 through 2026-07-02",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=951799477"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Lemrock": [
+      {
+        "field": "status",
+        "value": "Active: legal name \"Lemrock AI\", filings 2026-03-10 to 2026-06-12, plus financing-round filings",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=995358173"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|NuMind": [
+      {
+        "field": "status",
+        "value": "Active: filings 2022 through 2026-09-25",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=918240409"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Ooak data": [
+      {
+        "field": "status",
+        "value": "Active: legal name \"Ooak Data\", filings 2026-02-28 to 2026-10-20",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=932867963"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|RainPath": [
+      {
+        "field": "status",
+        "value": "Active: filings 2025-03-13 to 2026-07-28",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=941694085"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Smalk": [
+      {
+        "field": "status",
+        "value": "Active: legal name \"Smalk AI Labs\", filings 2025-08-22 and 2026-03-19",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=990238826"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Timper": [
+      {
+        "field": "status",
+        "value": "Active: legal name \"Timper France\", filing 2026-08-25",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=108702655"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Topograph": [
+      {
+        "field": "status",
+        "value": "Active: filings 2026-02-06 and 2026-05-11",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=932884117"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Weflayr": [
+      {
+        "field": "status",
+        "value": "Active: filings 2026-04-19 and 2026-07-30",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=103332649"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Youngr Labs": [
+      {
+        "field": "status",
+        "value": "Active: filings 2025-11-05 and 2026-08-26",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=993329069"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Lineshift AI": [
+      {
+        "field": "status",
+        "value": "Active: legal name \"Lineshift\", single filing 2025-05-15 (young company, thin filing history as expected)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=944260371"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Noïa Labs": [
+      {
+        "field": "status",
+        "value": "Active: single filing 2026-04-19 (young company, thin filing history as expected)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=103380721"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Prior Foundry": [
+      {
+        "field": "status",
+        "value": "Active: legal name \"Prior Foundry Europe\", single filing 2026-07-10 (young company, thin filing history as expected)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=106804891"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Arlequin AI": [
+      {
+        "field": "status",
+        "value": "Active: legal entity \"Arlequin\" (SIREN 983592676), filing 2024-01-30; raised a €28M Series A announced 2026-09-10, co-led by redalpine and OTB Ventures",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=983592676"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|GetMint": [
+      {
+        "field": "status",
+        "value": "Active: no direct company BODACC filing, but confirmed via \"Roundtable - Better Angle - GetMint\" financing filing (2026-07-28) and a second \"GetMint 2\" roundtable (2026-09-09) — the investor name \"Better Angle\" matches a €4M pre-seed round reported 2025-12-11 (Founders Future, 50 Partners, Kima Ventures, Clover)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=GetMint"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Kuli": [
+      {
+        "field": "status",
+        "value": "Active (moderate confidence): SIREN 930631080 (Levallois-Perret), filings since 2024 through 2026-07-07 — the company's actual HQ is contested across sources (SF/Zurich/Levallois-Perret), so this French SIREN is plausibly a subsidiary/registered office rather than HQ",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=930631080"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|CURA": [
+      {
+        "field": "status",
+        "value": "Active: not a French legal entity — resolves to CURA Climate Inc., a Calgary, Canada-based cement-decarbonization startup, which raised $10M USD announced 2026-09-17, led by Zacua Ventures",
+        "source": {
+          "label": "Named press coverage of the funding round",
+          "url": "https://stationf.co/news/future-40-2026"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|BioSky": [
+      {
+        "field": "status",
+        "value": "Dormant: zero BODACC hits under this name — no closure, acquisition or rebrand signal found either (expected for a cohort announced 2026-11-04)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=BioSky"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Coforix": [
+      {
+        "field": "status",
+        "value": "Dormant: zero BODACC hits under this name — no closure, acquisition or rebrand signal found either (expected for a cohort announced 2026-11-04)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Coforix"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Deepeye Medical": [
+      {
+        "field": "status",
+        "value": "Dormant: zero BODACC hits under this name — no closure, acquisition or rebrand signal found either (expected for a cohort announced 2026-11-04)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Deepeye+Medical"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Invertix": [
+      {
+        "field": "status",
+        "value": "Dormant: zero BODACC hits under this name — no closure, acquisition or rebrand signal found either (expected for a cohort announced 2026-11-04)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Invertix"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|SYNRA": [
+      {
+        "field": "status",
+        "value": "Dormant: zero BODACC hits under this name — no closure, acquisition or rebrand signal found either (expected for a cohort announced 2026-11-04)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=SYNRA"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|ZKAI Labs": [
+      {
+        "field": "status",
+        "value": "Dormant: zero BODACC hits under this name — no closure, acquisition or rebrand signal found either (expected for a cohort announced 2026-11-04)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=ZKAI+Labs"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Norma": [
+      {
+        "field": "status",
+        "value": "Dormant: name too generic to isolate (Normandie-related noise); a targeted \"Norma carbon capture\" search returned zero hits — no closure, acquisition or rebrand signal found either (expected for a cohort announced 2026-11-04)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Norma"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Marble": [
+      {
+        "field": "status",
+        "value": "Dormant: the only BODACC \"Marble\" match is an unrelated company with 2013-2014 filings; a targeted \"Marble enfants\" search returned zero hits (not to be confused with the unrelated Fei-Fei Li/World Labs product of the same name) — no closure, acquisition or rebrand signal found either (expected for a cohort announced 2026-11-04)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Marble"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Oguste": [
+      {
+        "field": "status",
+        "value": "Dormant: the only BODACC matches (\"L'Oguste\", \"SCI Oguste\") are a restaurant and a real-estate holding company, not an AI/legal-tech entity — no closure, acquisition or rebrand signal found either (expected for a cohort announced 2026-11-04)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Oguste"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2026|Shiplog": [
+      {
+        "field": "status",
+        "value": "Dormant: the closest BODACC match (\"Shiplogis\", a logistics company) has a sector mismatch against the customer-analytics product and is likely a different company — no closure, acquisition or rebrand signal found either (expected for a cohort announced 2026-11-04)",
+        "source": {
+          "label": "BODACC (official French legal-notice registry)",
+          "url": "https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Shiplog"
+        },
+        "verifiedAt": "2026-11-20"
       }
     ]
   }

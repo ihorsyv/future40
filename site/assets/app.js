@@ -23,7 +23,7 @@ const formatDate = iso => {
 };
 
 const FACT_LABELS = { founders: "Founders", funding: "Funding", investors: "Investors", geography: "Geography", status: "Current status" };
-const STATUS_VALUES = ["Active", "Acquired", "Closed"];
+const STATUS_VALUES = ["Active", "Acquired", "Closed", "Rebranded", "Dormant"];
 
 function statusCategory(statusFact) {
   if (!statusFact) return null;
