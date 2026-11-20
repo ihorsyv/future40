@@ -2905,6 +2905,50 @@
         },
         "verifiedAt": "2026-11-20"
       }
+    ],
+    "2022|CrunchDAO": [
+      {
+        "field": "status",
+        "value": "Active: not a French legal entity — confirmed via the company's own press release (with partners Galaxy Ventures and Road Capital) announcing a $5M round, October 2025, and its selection into the Solana Incubator cohort 2, April 2025",
+        "source": {
+          "label": "DL News / The Defiant (press release coverage)",
+          "url": "https://www.dlnews.com/external/crunch-lab-raises-5m-to-build-the-intelligence-layer-for-decentralized-ai/"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Tailor": [
+      {
+        "field": "status",
+        "value": "Active: SIREN 900570144, created 2021-05-01, status \"A\" (active) — identified via its named co-founders (Julien Ranquère, Vincent Algayres, Guillaume Degermann) matching the entity's officers",
+        "source": {
+          "label": "recherche-entreprises.api.gouv.fr (official French government company registry)",
+          "url": "https://recherche-entreprises.api.gouv.fr/search?q=900570144"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2022|Cyrius": [
+      {
+        "field": "status",
+        "value": "Closed: SIREN 903280261, created 2021-09-01 (Lille), status \"C\" (cessée) — company ceased 2025-06-30, head office closed 2025-03-31, wound down via liquidator entity ATALANTE (SIREN 900664574, itself now also ceased)",
+        "source": {
+          "label": "recherche-entreprises.api.gouv.fr (official French government company registry)",
+          "url": "https://recherche-entreprises.api.gouv.fr/search?q=903280261"
+        },
+        "verifiedAt": "2026-11-20"
+      }
+    ],
+    "2025|Qantum": [
+      {
+        "field": "status",
+        "value": "Active: SIREN 948896808 (Paris), created 2023-02-09, activity \"édition de logiciels applicatifs\" matching its AI-native accounting software product, status \"A\" (active) — disambiguated from a false-positive candidate (\"Qantara\", an unrelated accounting-consulting firm)",
+        "source": {
+          "label": "recherche-entreprises.api.gouv.fr (official French government company registry)",
+          "url": "https://recherche-entreprises.api.gouv.fr/search?q=948896808"
+        },
+        "verifiedAt": "2026-11-20"
+      }
     ]
   }
 }
