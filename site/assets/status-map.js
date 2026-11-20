@@ -12,7 +12,7 @@ const formatDate = iso => {
 };
 
 const STATUS_VALUES = ["Active", "Acquired", "Closed", "Rebranded", "Dormant"];
-const STATUS_ORDER = ["Acquired", "Closed", "Rebranded", "Dormant", "Active"];
+const STATUS_ORDER = ["Acquired", "Closed", "Rebranded", "Dormant", "Active", "Unverified"];
 
 function statusCategory(companyFacts) {
   const statusFact = companyFacts.find(fact => fact.field === "status");
@@ -42,52 +42,51 @@ function logoTemplate(name, domain) {
 }
 
 function cellTemplate(name, year, status, index, domain) {
-  return `<button type="button" class="map-cell status-${status.toLowerCase()}" data-name="${escape(name)}" data-year="${year}" title="${escape(name)} — ${status}">
+  const interactive = status !== "Unverified";
+  const tag = interactive ? "button" : "div";
+  const attrs = interactive ? `type="button" data-name="${escape(name)}" data-year="${year}"` : `aria-disabled="true"`;
+  return `<${tag} class="map-cell status-${status.toLowerCase()}" ${attrs} title="${escape(name)} — ${status === "Unverified" ? "Status not verified" : status}">
     <span class="map-cell-index">${String(index).padStart(2, "0")}</span>
     ${logoTemplate(name, domain)}
     <span class="map-cell-name">${escape(name)}</span>
-  </button>`;
+  </${tag}>`;
 }
 
-function rowTemplate(year, grouped, unverifiedCount, domains) {
+function rowTemplate(year, grouped, domains) {
   const cells = STATUS_ORDER.flatMap(status =>
     grouped[status].map(({ name, index }) => cellTemplate(name, year, status, index, domains[name]))
   ).join("");
-  const unverifiedTile = unverifiedCount > 0
-    ? `<div class="map-cell map-unverified">+${unverifiedCount}<br />unverified</div>`
-    : "";
   return `<div class="map-row">
     <div class="map-year">${year}</div>
-    <div class="map-cells">${cells}${unverifiedTile}</div>
+    <div class="map-cells">${cells}</div>
   </div>`;
 }
 
 async function start() {
-  const [companiesRes, factsRes, enrichmentRes] = await Promise.all([
-    fetch("data/companies.json"), fetch("data/facts.json"), fetch("data/enrichment.json"),
+  const [companiesRes, factsRes, enrichmentRes, logosRes] = await Promise.all([
+    fetch("data/companies.json"), fetch("data/facts.json"), fetch("data/enrichment.json"), fetch("data/logos.json"),
   ]);
-  const [data, factsData, enrichment] = await Promise.all([companiesRes.json(), factsRes.json(), enrichmentRes.json()]);
+  const [data, factsData, enrichment, logosData] = await Promise.all([companiesRes.json(), factsRes.json(), enrichmentRes.json(), logosRes.json()]);
   const facts = factsData.facts || {};
+  const logos = logosData.domains || {};
 
   let totalCompanies = 0;
 
   elements.rows.innerHTML = data.cohorts
     .slice()
-    .sort((a, b) => a.year - b.year)
+    .sort((a, b) => b.year - a.year)
     .map(cohort => {
-      const grouped = { Acquired: [], Closed: [], Rebranded: [], Dormant: [], Active: [] };
+      const grouped = { Acquired: [], Closed: [], Rebranded: [], Dormant: [], Active: [], Unverified: [] };
       const domains = {};
-      let unverifiedCount = 0;
       cohort.names.forEach((name, i) => {
         totalCompanies += 1;
         const companyFacts = facts[`${cohort.year}|${name}`] || [];
-        const status = statusCategory(companyFacts);
+        const status = statusCategory(companyFacts) || "Unverified";
         const website = enrichment.profiles?.[cohort.year]?.[name]?.websiteAtSelection;
-        domains[name] = domainOf(website);
-        if (status) grouped[status].push({ name, index: i + 1 });
-        else unverifiedCount += 1;
+        domains[name] = domainOf(website) || logos[`${cohort.year}|${name}`] || null;
+        grouped[status].push({ name, index: i + 1 });
       });
-      return rowTemplate(cohort.year, grouped, unverifiedCount, domains);
+      return rowTemplate(cohort.year, grouped, domains);
     })
     .join("");
 

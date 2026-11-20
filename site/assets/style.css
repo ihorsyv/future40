@@ -112,8 +112,11 @@ body.statusmap footer a{color:#fff}
 .map-cell.status-closed{border-top-color:var(--bad)}
 .map-cell.status-rebranded{border-top-color:#6b3fa0}
 .map-cell.status-dormant{border-top-color:#57534e}
-
-.map-unverified{width:104px;min-height:112px;border-radius:12px;background:transparent;border:1.5px dashed #2a3b50;color:#5a6e8a;display:flex;align-items:center;justify-content:center;text-align:center;font:700 .66rem/1.35 var(--font-body);cursor:default}
+.map-cell.status-unverified{border-top-color:#2a3b50;background:linear-gradient(180deg,#0f1826,#0c141f);cursor:default;opacity:.55}
+.map-cell.status-unverified:hover,.map-cell.status-unverified:focus-visible{transform:none;box-shadow:none;border-color:#1f2d42}
+.map-cell.status-unverified .map-cell-name{color:#7d8fa6}
+.map-cell.status-unverified .map-cell-logo{background:#1a2635}
+.map-cell.status-unverified .map-cell-fallback{color:#5a6e8a}
 
 @media(max-width:760px){
   .map-row{flex-direction:column;gap:12px}
